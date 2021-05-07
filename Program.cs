@@ -4,7 +4,6 @@ namespace MusicApp
 {
     class Program
     {
-        const int LARGO_DE_LINEA = 60;
         static void Main(string[] args)
         {
             var album1 = new Album
@@ -53,12 +52,14 @@ namespace MusicApp
             album1.Critica = critica1;
 
             // TODO: album1.imprimir();
-            imprimirLineaSencilla();
-            Console.WriteLine($"{"Album:",9} {album1.Titulo}\n{"Artista:",9} {album1.Artista.NombreArtistico}");
-            imprimirTitulo("Críticas");
-            Console.WriteLine($"{"Rolling Stone:",14} {album1.Critica.RollingStone}");
-            Console.WriteLine($"{"MTV:",14} {album1.Critica.Mtv}");
-            Console.WriteLine($"{"Music Maniac:",14} {album1.Critica.MusicManiac}");
+            album1.imprimir();
+
+            // imprimirLineaSencilla();
+            // Console.WriteLine($"{"Album:",9} {album1.Titulo}\n{"Artista:",9} {album1.Artista.NombreArtistico}");
+            // imprimirTitulo("Críticas");
+            // Console.WriteLine($"{"Rolling Stone:",14} {album1.Critica.RollingStone}");
+            // Console.WriteLine($"{"MTV:",14} {album1.Critica.Mtv}");
+            // Console.WriteLine($"{"Music Maniac:",14} {album1.Critica.MusicManiac}");
 
             // TODO: imprimir en pantalla la información completa del album
             // TODO: realizar lo conducente para imprimir en pantalla la informacion del artista,
@@ -86,17 +87,6 @@ namespace MusicApp
             */
         }
 
-        private static void imprimirTitulo(string texto)
-        {
-            var longitud = texto.Length / 2;
-            imprimirLineaSencilla();
-            Console.WriteLine("{0," + (Helpers.LARGO_DE_LINEA / 2 + longitud) + "}", texto.ToUpper());
-            imprimirLineaSencilla();
-        }
-
-        private static void imprimirLineaSencilla()
-        {
-            Console.WriteLine("".PadLeft(Helpers.LARGO_DE_LINEA, '-'));
-        }
+        
     }
 }

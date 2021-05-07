@@ -13,6 +13,10 @@ namespace MusicApp
         public int CriticaId { get; set; }
         public Critica Critica { get; set; }
 
-        public void imprimir() {}
+        public void imprimir()
+        {
+            Helpers.printTitle($"{Titulo} ({Artista.NombreArtistico})");
+            Helpers.printSubTitle(GeneroMusical);
+        }
     }
 }
