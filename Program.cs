@@ -52,7 +52,7 @@ namespace MusicApp
             album1.Artista = artista1;
             album1.Critica = critica1;
 
-            
+            // TODO: album1.imprimir();
             imprimirLineaSencilla();
             Console.WriteLine($"{"Album:",9} {album1.Titulo}\n{"Artista:",9} {album1.Artista.NombreArtistico}");
             imprimirTitulo("Críticas");
@@ -88,15 +88,15 @@ namespace MusicApp
 
         private static void imprimirTitulo(string texto)
         {
-            var longitud = texto.Length/2;
+            var longitud = texto.Length / 2;
             imprimirLineaSencilla();
-            Console.WriteLine($"{texto,LARGO_DE_LINEA/2}");
+            Console.WriteLine("{0," + (Helpers.LARGO_DE_LINEA / 2 + longitud) + "}", texto.ToUpper());
             imprimirLineaSencilla();
         }
 
         private static void imprimirLineaSencilla()
         {
-            Console.WriteLine("".PadLeft(LARGO_DE_LINEA, '-'));
+            Console.WriteLine("".PadLeft(Helpers.LARGO_DE_LINEA, '-'));
         }
     }
 }

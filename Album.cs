@@ -12,5 +12,7 @@ namespace MusicApp
         public Artista Artista { get; set; }
         public int CriticaId { get; set; }
         public Critica Critica { get; set; }
+
+        public void imprimir() {}
     }
 }
