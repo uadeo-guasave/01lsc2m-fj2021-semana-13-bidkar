@@ -1,6 +1,8 @@
+using System;
+
 namespace MusicApp
 {
-    class Album
+    class Album: IPrintable
     {
         public int Id { get; set; }
         public string Titulo { get; set; }
@@ -16,7 +18,15 @@ namespace MusicApp
         public void imprimir()
         {
             Helpers.printTitle($"{Titulo} ({Artista.NombreArtistico})");
-            Helpers.printSubTitle(GeneroMusical);
+            Helpers.printSubTitle("Detalles del album");
+            Console.WriteLine($"Género: {GeneroMusical}");
+            Console.WriteLine($"Año: {AñoDePublicacion}");
+            Console.WriteLine($"Pistas: {NumeroDePistas}");
+            Helpers.printSubTitle("Ranking");
+            Console.WriteLine($"Ventas: {NumeroDeVentas}");
+            Console.WriteLine($"Rolling Stone: {Critica.RollingStone}");
+            Console.WriteLine($"MTV: {Critica.Mtv}");
+            Console.WriteLine($"Music Maniac: {Critica.MusicManiac}");
         }
     }
 }

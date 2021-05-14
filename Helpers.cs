@@ -21,12 +21,6 @@ namespace MusicApp
 
         private static void printCenteredText(string text, bool upper)
         {
-            // if (upper) {
-            //     Console.WriteLine("{0," + (LARGO_DE_LINEA / 2 + text.Length / 2) + "}", text.ToUpper());
-            // } else {
-            //     Console.WriteLine("{0," + (LARGO_DE_LINEA / 2 + text.Length / 2) + "}", text);
-            // }
-
             Console.WriteLine("{0," + (LARGO_DE_LINEA / 2 + text.Length / 2) + "}", upper ? text.ToUpper() : text);
         }
 

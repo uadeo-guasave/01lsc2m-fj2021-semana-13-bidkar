@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace MusicApp
 {
@@ -48,45 +49,14 @@ namespace MusicApp
             };
 
             // asignar directamente las relaciones entre objetos
+            artista1.Albumes.Add(album1);
+            artista1.DatosDeContacto = contacto1;
             album1.Artista = artista1;
             album1.Critica = critica1;
 
-            // TODO: album1.imprimir();
             album1.imprimir();
-
-            // imprimirLineaSencilla();
-            // Console.WriteLine($"{"Album:",9} {album1.Titulo}\n{"Artista:",9} {album1.Artista.NombreArtistico}");
-            // imprimirTitulo("Críticas");
-            // Console.WriteLine($"{"Rolling Stone:",14} {album1.Critica.RollingStone}");
-            // Console.WriteLine($"{"MTV:",14} {album1.Critica.Mtv}");
-            // Console.WriteLine($"{"Music Maniac:",14} {album1.Critica.MusicManiac}");
-
-            // TODO: imprimir en pantalla la información completa del album
-            // TODO: realizar lo conducente para imprimir en pantalla la informacion del artista,
-            //       y sus datos de contacto
-
-            /*
-            // variables de tipo primitivo, se referencian a la porción de memoria de cada una
-            int a = 10;
-            int b = a;
-            Console.WriteLine($"a:{a} b:{b}");
-            a = 20;
-            Console.WriteLine($"a:{a} b:{b}");
-
-            // variable de tipo referencia, se referencian a la porción de memoria compartida
-            var artistax = new Artista {
-                Id = 2,
-                NombreArtistico = "Snoop Dogg",
-                NombreReal = "Don Motorolo"
-            };
-
-            var artistax2 = artistax;
-            Console.WriteLine($"x:{artistax.NombreReal} x2:{artistax2.NombreReal}");
-            artistax.NombreReal = "Calvin Cordozar Broadus Jr.";
-            Console.WriteLine($"x:{artistax.NombreReal} x2:{artistax2.NombreReal}");
-            */
+            album1.Artista.imprimir();
+            
         }
-
-        
     }
 }
