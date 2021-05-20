@@ -10,9 +10,8 @@ namespace MusicApp
         public string NombreArtistico { get; set; }
         public string RolMusical { get; set; }
         public int AñoDeNacimiento { get; set; }
-        public int DatosDeContactoId { get; set; }
         public DatosDeContacto DatosDeContacto { get; set; }
-        public List<Album> Albumes { get; set; } = new List<Album>();
+        public List<Album> Albumes { get; set; }
 
         public void imprimir()
         {

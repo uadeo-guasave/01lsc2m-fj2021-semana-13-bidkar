@@ -69,3 +69,9 @@ SELECT album_title,
        artist_id,
        (SELECT Id FROM Critica WHERE AlbumId=album_id)
   FROM music;
+
+-- DDL
+ALTER TABLE DatosDeContacto RENAME TO DatosDeContactos;
+ALTER TABLE Artista RENAME TO Artistas;
+ALTER TABLE Critica RENAME TO Criticas;
+ALTER TABLE Album RENAME TO Albumes;

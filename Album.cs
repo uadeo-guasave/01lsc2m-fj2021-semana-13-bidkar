@@ -1,4 +1,6 @@
 using System;
+using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace MusicApp
 {
@@ -12,7 +14,6 @@ namespace MusicApp
         public int NumeroDeVentas { get; set; }
         public int ArtistaId { get; set; }
         public Artista Artista { get; set; }
-        public int CriticaId { get; set; }
         public Critica Critica { get; set; }
 
         public void imprimir()
@@ -27,6 +28,23 @@ namespace MusicApp
             Console.WriteLine($"Rolling Stone: {Critica.RollingStone}");
             Console.WriteLine($"MTV: {Critica.Mtv}");
             Console.WriteLine($"Music Maniac: {Critica.MusicManiac}");
+        }
+
+        public static void mostrarAlbumesPorAño(int año)
+        {
+            using (var db = new SqliteDbContext())
+            {
+                var albumes = db.Albumes
+                    .Where(album => album.AñoDePublicacion == año)
+                    .Include(album => album.Artista)
+                    .Take(20)
+                    .ToList();
+                
+                foreach (var album in albumes)
+                {
+                    Console.WriteLine($"Album: {album.Titulo} ({album.Artista.NombreReal})");
+                }
+            }
         }
     }
 }

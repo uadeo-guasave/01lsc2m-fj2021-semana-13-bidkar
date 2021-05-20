@@ -1,11 +1,44 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace MusicApp
 {
     class Program
     {
         static void Main(string[] args)
+        {
+            // Anterior();
+
+            // PruebaBaseDeDatos();
+            
+            Album.mostrarAlbumesPorAño(2019);
+        }
+
+        private static void PruebaBaseDeDatos()
+        {
+            using (var db = new SqliteDbContext())
+            {
+                db.Database.EnsureCreated();
+                // obtener los primeros 10 albumes con artista y crítica
+                var albumes = db.Albumes
+                    .Take(1)
+                    .Include(album => album.Artista)
+                        .ThenInclude(artista => artista.DatosDeContacto)
+                    .Include(album => album.Critica)
+                    .ToList();
+
+                foreach (var album in albumes)
+                {
+                    // Console.WriteLine($"Album: {album.Titulo}");
+                    album.imprimir();
+                    album.Artista.imprimir();
+                }
+            }
+        }
+
+        private static void Anterior()
         {
             var album1 = new Album
             {
@@ -15,8 +48,7 @@ namespace MusicApp
                 AñoDePublicacion = 1990,
                 NumeroDePistas = 12,
                 NumeroDeVentas = 10000000,
-                ArtistaId = 6452,
-                CriticaId = 738
+                ArtistaId = 6452
             };
 
             var critica1 = new Critica
@@ -34,8 +66,7 @@ namespace MusicApp
                 NombreReal = "Rosalino Sanchez Felix",
                 NombreArtistico = "Chalino Sanchez",
                 RolMusical = "Solista",
-                AñoDeNacimiento = 1960,
-                DatosDeContactoId = 8463
+                AñoDeNacimiento = 1960
             };
 
             var contacto1 = new DatosDeContacto
@@ -56,7 +87,6 @@ namespace MusicApp
 
             album1.imprimir();
             album1.Artista.imprimir();
-            
         }
     }
 }
